@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div style="text-align: center;">
+	<h1> Rate Converter</h1>
+	<form method="post" action="#">
+		{% csrf_token %}
+		<input type="number" name="value" placeholder="value">
+
+		<select name="homrcur">
+			<option value="">--Select HomeCurrency--</option>
+			{% for each in countryCode %}
+				<option value="{{ each }}">{{ each }}</option>
+			{% endfor %}
+		
+		</select>
+		<select name="targetcur">
+			<option value="">--Select HomeCurrency--</option>
+			{% for each in countryCode %}
+				<option value="{{ each }}">{{ each }}</option>
+			{% endfor %}
+		
+		</select>
+
+		<input type="submit">
+	</form>
+	{% if targetCurrency != '' %}
+		<h1>{{ value }}{{ HomeCur }} = {{ targetCurrency }} {{ targetcur }}</h1>
+	{% endif %}
+
+</div>
+</body>
+</html>
